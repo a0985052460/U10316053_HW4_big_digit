@@ -18,12 +18,10 @@ public class Big_Digit {
 			a.add(Integer.parseInt(h.substring(i >= 0 ? i : 0, i + 4)));//if(i> = 0) i,i+4;  else 0,i+4;
 		}
 		
-		System.out.println(a);//test
-		
-		
 		int b=(a.size()/8+1)*8;
-		
-		System.out.println(b);//test
+		for(int i = a.size(); i < b; i++) {
+            a.add(0);
+        }//if less than 8 digit fill up with 0
 		
 		if(!positive){//if not positive , a goes to Complement
 			List<Integer> a_comp = new ArrayList<>();
@@ -33,8 +31,6 @@ public class Big_Digit {
 	        a_comp.set(0, a_comp.get(0) + 1);
 	        a=a_comp;
 		}
-		
-		System.out.println(a);//test
 	}
 	
 	
