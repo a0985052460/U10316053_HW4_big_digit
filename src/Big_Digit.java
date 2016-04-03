@@ -14,16 +14,32 @@ public class Big_Digit {
 		
 		a = new ArrayList<>();
 		
-		for(int i=h.length()-1;i>0;i--){
-			a.add(Integer.parseInt(h.substring(i)));
-			
+		for(int i = h.length() - 4; i > -4; i -= 4) {
+			a.add(Integer.parseInt(h.substring(i >= 0 ? i : 0, i + 4)));//if(i> = 0) i,i+4;  else 0,i+4;
 		}
-		//for(int i=0;i<10;i++){
-			System.out.println(a);
-		//}
+		
+		System.out.println(a);//test
 		
 		
+		int b=(a.size()/8+1)*8;
+		
+		System.out.println(b);//test
+		
+		if(!positive){//if not positive , a goes to Complement
+			List<Integer> a_comp = new ArrayList<>();
+	        for(Integer i:a){
+	        	a_comp.add(9999 - i);
+	        }
+	        a_comp.set(0, a_comp.get(0) + 1);
+	        a=a_comp;
+		}
+		
+		System.out.println(a);//test
 	}
+	
+	
+	
+	
 	public String toshow(String A){
 		return A;
 	}
@@ -45,7 +61,7 @@ public class Big_Digit {
 	
 	public static void main(String[] args) {
 		//Big_Digit x=new Big_Digit("-10000000000000000000000000000000000000000000000000");
-		Big_Digit x=new Big_Digit("-10000");
+		Big_Digit x=new Big_Digit("-1000");
 		//Big_Digit y=new Big_Digit("-10");
 		//System.out.println(x.add(x,y));
 		//System.out.println(x);
